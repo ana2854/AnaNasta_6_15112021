@@ -2,9 +2,27 @@
 
 const express = require('express');
 
+const mongoose = require('mongoose');
+
 const app = express();
 
 app.use(express.json());
+
+mongoose.connect(
+    "mongodb+srv://user700:0Jv1ivdWb5@cluster0.gk6zl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      tlsInsecure:true,
+    },
+    (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Connexion à MongoDb réussi");
+      }
+    }
+  );
 
 //le CORS définit comment les serveurs et les navigateurs interagissent en spécifiant quelles ressources peuvent être demandées 
 //app.use permet d'accéder d'attribuer un middleware à une route spécifique de mon app
