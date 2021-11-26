@@ -4,6 +4,8 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.json());
+
 //le CORS définit comment les serveurs et les navigateurs interagissent en spécifiant quelles ressources peuvent être demandées 
 //app.use permet d'accéder d'attribuer un middleware à une route spécifique de mon app
 //middleware avec des headers permettant d'accéder à notre api depuis n'importe quelle origine
@@ -16,7 +18,17 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use('/api/stuff', (req, res, next) => {
+
+//requête post
+  app.post('/api/stuff', (req, res, next) => {
+    console.log(req.body);
+    res.status(201).json({
+      message: 'Objet créé !'
+    });
+  });
+
+//requêtes get
+app.get('/api/stuff', (req, res, next) => {
     const stuff = [
       {
         _id: 'oeihfzeoi',
