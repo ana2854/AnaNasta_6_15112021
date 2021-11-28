@@ -7,6 +7,10 @@ const mongoose = require('mongoose');
 //importation du routeur - routes/stuff.js
 const stuffRoutes = require('./routes/stuff');
 
+
+//importation du routeur correspondant aux utilisateurs 
+const userRoutes = require('./routes/user');
+
 const app = express();
 
 app.use(express.json());
@@ -41,6 +45,9 @@ app.use((req, res, next) => {
 
 //pour cette route on utilise le routeur stuffRoutes
   app.use('/api/stuff', stuffRoutes);
+
+//pour cette route on utilise le routeur userRoutes -lié à l'authentification 
+  app.use('/api/auth', userRoutes);
 
 module.exports = app;
 
