@@ -1,4 +1,4 @@
-//CONTROLEUR - stocke toute la logique de métier , logique de chaque fonction 
+//CONTROLEUR - stocke toute la logique de métier , exporte des méthodes qui sont ensuite attribuées aux routes pour améliorer la maintenabilité de l'appli 
 
 //importation du modèle Thing
 const Thing = require('../models/thing');

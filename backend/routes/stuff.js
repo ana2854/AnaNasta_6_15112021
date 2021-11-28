@@ -1,6 +1,8 @@
 //ROUTEUR -logique de rooting
 
 const express = require('express');
+
+//express.router permet de créer des routeurs séparés pour chaque route ppale de l'appli
 const router = express.Router();
 
 const stuffCtrl = require('../controllers/stuff');
