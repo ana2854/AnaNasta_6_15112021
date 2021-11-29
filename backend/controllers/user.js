@@ -1,3 +1,8 @@
+
+const User = require('../models/user');
+
+
+
 //fonction signup va enregistrer nvx utilisateurs
 exports.signup = (req, res, next) => {
 
