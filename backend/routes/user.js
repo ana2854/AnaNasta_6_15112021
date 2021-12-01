@@ -12,4 +12,15 @@ router.post('/signup', userCtrl.signup);
 router.post('/login', userCtrl.login);
 
 //on exporte ce routeur 
+const express = require('express');
+const router = express.Router();
+
+const userCtrl = require('../controllers/user');
+
+//routes POST -car le front end va envoyer des infos -mails et mdp
+// signup
+// login
+router.post('/signup', userCtrl.signup);
+router.post('/login', userCtrl.login);
+
 module.exports = router;
