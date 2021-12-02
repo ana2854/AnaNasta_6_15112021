@@ -2,16 +2,19 @@
 
 const express = require('express');
 
+const auth = require('../middleware/auth')
+
 //express.router permet de créer des routeurs séparés pour chaque route ppale de l'appli
 const router = express.Router();
 
 const stuffCtrl = require('../controllers/stuff');
 
 // ces routes vont appliquer la fonction qui lui est associée
-router.get('/', stuffCtrl.getAllStuff);
-router.post('/', stuffCtrl.createThing);
-router.get('/:id', stuffCtrl.getOneThing);
-router.put('/:id', stuffCtrl.modifyThing);
-router.delete('/:id', stuffCtrl.deleteThing);
+//protection de la route en ajoutant le middleware auth avant d'autoriser l'envoi des requêtes
+router.get('/', auth, stuffCtrl.getAllStuff);
+router.post('/', auth, stuffCtrl.createThing);
+router.get('/:id', auth, stuffCtrl.getOneThing);
+router.put('/:id', auth, stuffCtrl.modifyThing);
+router.delete('/:id',auth, stuffCtrl.deleteThing);
 
 module.exports = router;
