@@ -4,15 +4,20 @@ const express = require('express');
 
 const mongoose = require('mongoose');
 
+
+
 //importation du routeur - routes/stuff.js
 const stuffRoutes = require('./routes/stuff');
 
+//importation de path pour accéder au path de notre serveur 
+const path = require('path')
 
 //importation du routeur correspondant aux utilisateurs 
 const userRoutes = require('./routes/user');
 
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 mongoose.connect(

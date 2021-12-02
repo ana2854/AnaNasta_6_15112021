@@ -1,4 +1,4 @@
-//CONTROLEUR - stocke toute la logique de métier , exporte des méthodes qui sont ensuite attribuées aux routes pour améliorer la maintenabilité de l'appli 
+//CONTROLEUR FINAL- stocke toute la logique de métier , exporte des méthodes qui sont ensuite attribuées aux routes pour améliorer la maintenabilité de l'appli 
 
 //importation du modèle Thing
 const Thing = require('../models/thing');
@@ -26,6 +26,7 @@ exports.createThing = (req, res, next) => {
   );
 };
 
+//route pour créer un objet
 exports.getOneThing = (req, res, next) => {
   Thing.findOne({
     _id: req.params.id
@@ -42,6 +43,7 @@ exports.getOneThing = (req, res, next) => {
   );
 };
 
+//route pour modifier un objet
 exports.modifyThing = (req, res, next) => {
   const thing = new Thing({
     _id: req.params.id,
@@ -66,6 +68,7 @@ exports.modifyThing = (req, res, next) => {
   );
 };
 
+//route pour supprimer un objet
 exports.deleteThing = (req, res, next) => {
   Thing.deleteOne({_id: req.params.id}).then(
     () => {
@@ -82,6 +85,7 @@ exports.deleteThing = (req, res, next) => {
   );
 };
 
+//route pour récupérer tous les objets
 exports.getAllStuff = (req, res, next) => {
   Thing.find().then(
     (things) => {

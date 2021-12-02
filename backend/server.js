@@ -1,4 +1,6 @@
 const http = require('http');
+
+//importation de l'app
 const app = require('./app');
 
 const normalizePort = val => {
@@ -12,6 +14,8 @@ const normalizePort = val => {
   }
   return false;
 };
+
+////la fonction normalizePort renvoie un port valide qu'il soit fourni sous la forme d'un numéro ou d'une chaîne
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
@@ -35,8 +39,11 @@ const errorHandler = error => {
   }
 };
 
+
+//on passe au serveur l'application express
 const server = http.createServer(app);
 
+//écouteur d'évènements qui consigne le port/canal nommé sur lequel le serveur s'exécute ds la console
 server.on('error', errorHandler);
 server.on('listening', () => {
   const address = server.address();
