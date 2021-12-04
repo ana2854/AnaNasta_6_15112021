@@ -1,4 +1,4 @@
-//Middleware qui va configurer multer 
+//Middleware qui va configurer multer pour gérer les fichiers entrants
 
 //importation du package multer
 const multer = require ('multer');

@@ -4,13 +4,11 @@ const express = require('express');
 
 const mongoose = require('mongoose');
 
-
+//importation de path pour accéder au chemin de notre système de fichier
+const path = require('path')
 
 //importation du routeur - routes/stuff.js
 const stuffRoutes = require('./routes/stuff');
-
-//importation de path pour accéder au path de notre serveur 
-const path = require('path')
 
 //importation du routeur correspondant aux utilisateurs 
 const userRoutes = require('./routes/user');
@@ -53,6 +51,8 @@ app.use((req, res, next) => {
 
 //pour cette route on utilise le routeur userRoutes -lié à l'authentification 
   app.use('/api/auth', userRoutes);
+
+  app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = app;
 

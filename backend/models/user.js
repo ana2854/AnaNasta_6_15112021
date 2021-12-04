@@ -9,7 +9,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 //création du schéma 
 const userSchema = mongoose.Schema({
 
-  //impossible pour l'ut de s'inscrire plusieurs fois ac plusieurs mails
+  //impossible pour l'utilisateur de s'inscrire plusieurs fois ac plusieurs mails
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true }
 });
