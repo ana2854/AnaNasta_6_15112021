@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 //importation de path pour accéder au chemin de notre système de fichier
 const path = require('path')
 
-//importation du routeur - routes/stuff.js
-const stuffRoutes = require('./routes/stuff');
+//importation du routeur - routes/sauce.js
+const sauceRoutes = require('./routes/sauce');
 
 //importation du routeur correspondant aux utilisateurs 
 const userRoutes = require('./routes/user');
@@ -46,8 +46,8 @@ app.use((req, res, next) => {
     next();
   });
 
-//pour cette route on utilise le routeur stuffRoutes
-  app.use('/api/stuff', stuffRoutes);
+//pour cette route on utilise le routeur sauceRoutes
+  app.use('/api/sauce', sauceRoutes);
 
 //pour cette route on utilise le routeur userRoutes -lié à l'authentification 
   app.use('/api/auth', userRoutes);
