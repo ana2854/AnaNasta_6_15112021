@@ -12,7 +12,7 @@ userId : {type: String, required : true},
 name :  {type: String, required : true},
 
 //fabriquant sauce
-Manufacturer :  {type: String, required : true},
+manufacturer :  {type: String, required : true},
 
 //Description sauce
 description : {type: String, required : true},

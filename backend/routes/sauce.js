@@ -14,10 +14,10 @@ const sauceCtrl = require('../controllers/sauce');
 // ces routes vont appliquer la fonction qui lui est associée
 //protection de la route en ajoutant le middleware auth avant d'autoriser l'envoi des requêtes
 //multer pour les images 
-router.get('/', auth, sauceCtrl.getAllSauce);
+router.get('/', auth, sauceCtrl.getAllSauces);
 router.post('/', auth, multer, sauceCtrl.createSauce);
 router.get('/:id', auth, sauceCtrl.getOneSauce);
 router.put('/:id', auth, multer, sauceCtrl.modifySauce);
-router.delete('/:id',auth, sauceCtrl.deleteSauce);
+router.delete('/:id', auth, sauceCtrl.deleteSauce);
 
 module.exports = router;
