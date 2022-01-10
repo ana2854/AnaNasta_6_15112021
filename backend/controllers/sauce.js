@@ -113,11 +113,11 @@ if (likes = 1) {
 
 // METTRE PAREIL POUR DISLIKE
 
-   for (let i=0; i< sauce.userLiked.length; i++) {
+   for (let i=0; i< sauce.userDisliked.length; i++) {
       
-      if  (sauce.userLiked[i] == userId) {
+      if  (sauce.userdisLiked[i] == userId) {
         sauce.likes -= 1;
-        sauce.userLiked.splice(i,1)
+        sauce.userdisLiked.splice(i,1)
       }
 
     }
