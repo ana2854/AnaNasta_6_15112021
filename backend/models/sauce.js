@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const sauceSchema = mongoose.Schema({
 
   
-  //identifiant mongoDB unique de l'utilisateur
+  //id sauce
 userId : {type: String, required : true},
 
 //nom sauce
@@ -27,16 +27,16 @@ imageUrl :  {type: String, required : true},
 heat :  {type: Number, required: true},
 
 //nb utilisateur qui like la sauce
-likes :  {type: Number},
+likes :  {type: Number, default :0},
 
 //nb utilisateurs qui dislike la sauce
-dislikes :  {type: Number},
+dislikes :  {type: Number, default: 0},
 
-//tableau des identifiants des utilisateurs qui ont aimé la sauce 
-usersLiked : {type: Array},
+//tableau des id des utilisateurs qui ont aimé la sauce 
+usersLiked : {type: Array, default :[]},
 
-//tableau des identifiants qui n'ont pas aimé la sauce
-usersDisliked : {type: Array}
+//tableau des id des utilisateurs qui n'ont pas aimé la sauce
+usersDisliked : {type: Array, default: []}
 
 });
 

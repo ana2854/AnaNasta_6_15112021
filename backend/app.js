@@ -13,6 +13,9 @@ const sauceRoutes = require("./routes/sauce");
 //importation du routeur correspondant aux utilisateurs
 const userRoutes = require("./routes/user");
 
+
+
+
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -52,7 +55,7 @@ app.use((req, res, next) => {
   next();
 });
 
-//pour cette route on utilise le routeur sauceRoutes URL!!!
+//pour cette route on utilise le routeur sauceRoutes URL
 app.use("/api/sauces", sauceRoutes);
 
 //pour cette route on utilise le routeur userRoutes -lié à l'authentification
@@ -61,10 +64,7 @@ app.use("/api/auth", userRoutes);
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 
-/*ESSAI ROUTES LIKE
 
-app.use("api/sauces/")
 
-*/
 
 module.exports = app;
