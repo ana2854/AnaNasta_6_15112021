@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const sauceSchema = mongoose.Schema({
 
   
-  //id sauce
+  //id utilisateur qui ajoute la sauce
 userId : {type: String, required : true},
 
 //nom sauce
