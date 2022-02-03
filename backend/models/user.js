@@ -3,7 +3,7 @@
 //on importe mongoose
 const mongoose = require('mongoose');
 
-//plugin unique validator
+//plugin unique validator 
 const uniqueValidator = require('mongoose-unique-validator');
 
 //création du schéma 
@@ -14,7 +14,7 @@ const userSchema = mongoose.Schema({
   password: { type: String, required: true }
 });
 
-//validateur appliqué au schéma avant d'en faire un modèle, pas possible d'avoir un ut avec plusieurs addresses mails
+//validateur appliqué au schéma avant d'en faire un modèle, pas possible d'avoir un ut avec la même adresse mail 
 userSchema.plugin(uniqueValidator);
 
 
