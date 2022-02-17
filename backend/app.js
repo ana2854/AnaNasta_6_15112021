@@ -1,6 +1,7 @@
 //Application Express
-
 const express = require("express");
+
+require('dotenv').config();
 
 const mongoose = require("mongoose");
 
@@ -14,6 +15,8 @@ const sauceRoutes = require("./routes/sauce");
 const userRoutes = require("./routes/user");
 
 
+ const helmet =require('helmet');
+ ​
 
 
 const app = express();
@@ -21,8 +24,10 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+
 mongoose.connect(
-  "mongodb+srv://user700:0Jv1ivdWb5@cluster0.gk6zl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  process.env.MONGO_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -63,8 +68,6 @@ app.use("/api/auth", userRoutes);
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-
-
-
+app.use(helmet());
 
 module.exports = app;
