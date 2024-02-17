@@ -5,15 +5,19 @@
   "main": "index.html",
   "scripts": {
     "start": "run-script-os",
-    "start:linux:darwin": "concurrently \"node ./node_modules/.bin/http-server -a localhost -p 8081\"  \"sleep 1 && open http://localhost:8081\"",
-    "start:win32": "node node_modules/live-server/live-server --port=8081"
+    "start:darwin": "concurrently \"http-server -a localhost -p 8081\" \"sleep 1 && open -a Firefox http://localhost:8081\"",
+    "start:linux": "concurrently \"http-server -a localhost -p 8081\" \"sleep 1 && xdg-open http://localhost:8081\"",
+    "start:win32": "concurrently \"http-server -a localhost -p 8081\" \"timeout 1 && start http://localhost:8081\"",
+    "start:default": "echo 'This platform is not currently supported.'"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^5.2.0",
     "http-server": "^0.11.1",
-    "live-server": "^1.2.1",
-    "run-script-os": "^1.0.7"
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {
+    "run-script-os": "^1.1.6"
   }
 }
